@@ -4,7 +4,6 @@
 Class for the implementation of the variable elimination algorithm.
 
 """
-
 class VariableElimination():
 
     def __init__(self, network):
