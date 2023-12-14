@@ -4,6 +4,8 @@
 Class for the implementation of the variable elimination algorithm.
 
 """
+from Factor import Factor
+
 class VariableElimination():
 
     def __init__(self, network):
@@ -30,3 +32,15 @@ class VariableElimination():
                 for the query variable
 
         """
+        factors = self.CreateFactors()
+        # for var in elim_order:
+        #     for fac in factors:
+
+
+    def CreateFactors(self):
+        factors = [Factor]
+        for node in self.network.nodes:
+            factors.append(Factor(node, self.network.probabilities[node]))
+        return factors
+
+        
