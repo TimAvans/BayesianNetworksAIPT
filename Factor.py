@@ -27,7 +27,7 @@
 import pandas 
 
 class Factor:
-
+    
     def __init__(self, query: str, dataframe : pandas.DataFrame):
         self.Query = query
         self.Dataframe = dataframe
@@ -43,7 +43,7 @@ class Factor:
         if not common_columns:
             print("No common columns found.")
             return pandas.DataFrame()  # Return an empty dataframe
-
+        
         # Merge with different suffixes for each dataframe
         merged = pandas.merge(self.Dataframe, other.Dataframe, on=common_columns, suffixes=('_self', '_other'))
         merged['prob'] = merged['prob_self'] * merged['prob_other']

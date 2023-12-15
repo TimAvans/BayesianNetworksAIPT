@@ -26,11 +26,7 @@ if __name__ == '__main__':
     # Make your variable elimination code in the seperate file: 'variable_elim'. 
     # You use this file as follows:
     ve = VariableElimination(net)
-    f = Factor("MaryCalls", net.probabilities["MaryCalls"])
-    f1 = Factor("JohnCalls", net.probabilities["JohnCalls"])
 
-    f.Multiplication(f1, "")  
-    marginalized = f.Marginalize("Alarm")
     # Set the node to be queried as follows:
     query = 'Alarm'
 
