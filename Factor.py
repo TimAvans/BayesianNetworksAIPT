@@ -33,16 +33,8 @@ class Factor:
         self.Dataframe = dataframe
 
 
-#Multiplication functions/operators override of the standard multiplication functions/operators of the class
-    def __mul__(self, other):
-        # Self * Other dataframe merge method
-        return -1
-    
-    def __rmul__(self, other):
-        # Other * Self dataframe merge method
-        return -1
-    
-    def Multiplication(self, other : 'Factor', variable : str):
+#Multiplication functions/operators override of the standard multiplication functions/operators of the class    
+    def Multiplication(self, other : 'Factor'):
         # Find common columns
         common_columns = list(self.Dataframe.columns.intersection(other.Dataframe.columns))
         if(common_columns.__contains__("prob")):
