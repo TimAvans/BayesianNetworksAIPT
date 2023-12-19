@@ -22,8 +22,8 @@
 #                                      Alarm     True True False False
 #                                      prob      0.7  0.3  0.01  0.99
 
-from ast import List
 import pandas 
+import re
 
 class Factor:
 
@@ -36,8 +36,7 @@ class Factor:
     
     def Multiplication(self, other : 'Factor'):
         # Find common columns
-        common_columns = list(set(element for element in self.Dataframe.columns if element != 'prob')
-                              .intersection(element for element in other.Dataframe.columns if element != 'prob'))
+        common_columns = list(set(element for element in self.Dataframe.columns if element != 'prob').intersection(element for element in other.Dataframe.columns if element != 'prob'))
         
         if(common_columns.__contains__("prob")):
             common_columns.remove("prob")
@@ -54,12 +53,16 @@ class Factor:
         return Factor(merged)
 
     def Marginalize(self, variable : str):     
-        if(not self.Dataframe.columns.__contains__(variable)):
+        if not self.Dataframe.columns.__contains__(variable):
             return self
+        
+        # if len([s for s in self.Dataframe.columns if re.search("prob", s) is None]) <= 1:
+        #     return self
 
         dtf = self.Dataframe.drop(variable, axis=1)
         vars = [col for col in dtf.columns.tolist() if col != "prob"]
         dtf = dtf.groupby(vars, as_index=False)["prob"].sum()
+
         if isinstance(dtf, pandas.Series):
             dtf = pandas.DataFrame(dtf)
         
@@ -73,5 +76,11 @@ class Factor:
 
         return self
     
+    def GetFactorWithCommonColumns(self, factors):
+        for other in factors:
+            common_columns = list(set(element for element in self.Dataframe.columns if element != 'prob').intersection(element for element in other.Dataframe.columns if element != 'prob'))
+            if common_columns:
+                return other
+            
     def __str__(self):
         return ""

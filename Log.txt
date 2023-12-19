@@ -1,494 +1,130 @@
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
+[19-12-2023 22:15:40] Factor created and added with dataframe: 
 Earthquake  prob
       True  0.02
      False  0.98
 
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
+[19-12-2023 22:15:40] Factor created and added with dataframe: 
 Alarm Earthquake  prob
  True       True  0.95
 False       True  0.05
  True      False  0.94
 False      False  0.06
 
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
+[19-12-2023 22:15:40] Factor created and added with dataframe: 
 JohnCalls Alarm  prob
      True  True  0.90
     False  True  0.10
      True False  0.05
     False False  0.95
 
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
+[19-12-2023 22:15:40] Factor created and added with dataframe: 
 MaryCalls Alarm  prob
      True  True  0.70
     False  True  0.30
      True False  0.01
     False False  0.99
 
-[19-12-2023 17:57:52] First factor to multiply:
+[19-12-2023 22:15:40] First factor to multiply:
 Alarm Earthquake  prob
  True       True  0.95
 False       True  0.05
  True      False  0.94
 False      False  0.06
 
-[19-12-2023 17:57:52] Second factor to multiply:
+[19-12-2023 22:15:40] Second factor to multiply:
 Earthquake  prob
       True  0.02
      False  0.98
 
-[19-12-2023 17:57:52] Factor mutliplication result:
+[19-12-2023 22:15:40] Factor mutliplication result:
 Alarm Earthquake   prob
  True       True 0.0190
 False       True 0.0010
  True      False 0.9212
 False      False 0.0588
 
-[19-12-2023 17:57:52] Factor to marginalize:
+[19-12-2023 22:15:40] Factor to marginalize:
 Alarm Earthquake   prob
  True       True 0.0190
 False       True 0.0010
  True      False 0.9212
 False      False 0.0588
 
-[19-12-2023 17:57:52] Factor marginalized:
+[19-12-2023 22:15:40] Factor marginalized:
 Alarm   prob
 False 0.0598
  True 0.9402
 
-[19-12-2023 17:57:52] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:57:52] Factor to marginalize:
+[19-12-2023 22:15:40] Factor added to the list of the key: MaryCalls
+[19-12-2023 22:15:40] Factor to marginalize:
 JohnCalls Alarm  prob
      True  True  0.90
     False  True  0.10
      True False  0.05
     False False  0.95
 
-[19-12-2023 17:57:52] Factor marginalized:
+[19-12-2023 22:15:40] Factor marginalized:
 Alarm  prob
 False   1.0
  True   1.0
 
-[19-12-2023 17:57:52] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:57:52] First factor to multiply:
+[19-12-2023 22:15:40] Factor added to the list of the key: MaryCalls
+[19-12-2023 22:15:40] First factor to multiply:
 Alarm  prob
 False   1.0
  True   1.0
 
-[19-12-2023 17:57:52] Second factor to multiply:
+[19-12-2023 22:15:40] Second factor to multiply:
 MaryCalls Alarm  prob
      True  True  0.70
     False  True  0.30
      True False  0.01
     False False  0.99
 
-[19-12-2023 17:57:52] Factor mutliplication result:
+[19-12-2023 22:15:40] Factor mutliplication result:
 Alarm MaryCalls  prob
 False      True  0.01
 False     False  0.99
  True      True  0.70
  True     False  0.30
 
-[19-12-2023 17:57:52] First factor to multiply:
+[19-12-2023 22:15:40] First factor to multiply:
 Alarm MaryCalls  prob
 False      True  0.01
 False     False  0.99
  True      True  0.70
  True     False  0.30
 
-[19-12-2023 17:57:52] Second factor to multiply:
+[19-12-2023 22:15:40] Second factor to multiply:
 Alarm   prob
 False 0.0598
  True 0.9402
 
-[19-12-2023 17:57:52] Factor mutliplication result:
+[19-12-2023 22:15:40] Factor mutliplication result:
 Alarm MaryCalls     prob
 False      True 0.000598
 False     False 0.059202
  True      True 0.658140
  True     False 0.282060
 
-[19-12-2023 17:57:52] Factor to marginalize:
+[19-12-2023 22:15:40] Factor to marginalize:
 Alarm MaryCalls     prob
 False      True 0.000598
 False     False 0.059202
  True      True 0.658140
  True     False 0.282060
 
-[19-12-2023 17:57:52] Factor marginalized:
+[19-12-2023 22:15:40] Factor marginalized:
 Alarm   prob
 False 0.0598
  True 0.9402
 
-[19-12-2023 17:57:52] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:57:52] Result factor is achieved:
+[19-12-2023 22:15:40] Factor added to the list of the key: MaryCalls
+[19-12-2023 22:15:40] Result factor is achieved:
 Alarm   prob
 False 0.0598
  True 0.9402
 
-[19-12-2023 17:57:52] -----------------------------------------------------------------------------------------------------
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-Burglary  prob
-    True 0.001
-   False 0.999
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-Earthquake  prob
-      True  0.02
-     False  0.98
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-Alarm  Fire Tampering   prob
- True  True      True 0.5000
-False  True      True 0.5000
- True False      True 0.8500
-False False      True 0.1500
- True  True     False 0.9900
-False  True     False 0.0100
- True False     False 0.0001
-False False     False 0.9999
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-JohnCalls Alarm  prob
-     True  True  0.90
-    False  True  0.10
-     True False  0.05
-    False False  0.95
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-MaryCalls Alarm  prob
-     True  True  0.70
-    False  True  0.30
-     True False  0.01
-    False False  0.99
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-Leaving Alarm  prob
-   True  True 0.880
-  False  True 0.120
-   True False 0.001
-  False False 0.999
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
- Fire  prob
- True  0.01
-False  0.99
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
- Fire  prob
- True  0.90
-False  0.01
-
-[19-12-2023 17:57:52] Factor created and added with dataframe: 
-Leaving  prob
-   True  0.75
-  False  0.01
-
-[19-12-2023 17:57:52] Factor to marginalize:
-Burglary  prob
-    True 0.001
-   False 0.999
-
-[19-12-2023 17:58:46] Factor created and added with dataframe: 
-Earthquake  prob
-      True  0.02
-     False  0.98
-
-[19-12-2023 17:58:46] Factor created and added with dataframe: 
-Alarm Earthquake  prob
- True       True  0.95
-False       True  0.05
- True      False  0.94
-False      False  0.06
-
-[19-12-2023 17:58:46] Factor created and added with dataframe: 
-JohnCalls Alarm  prob
-     True  True  0.90
-    False  True  0.10
-     True False  0.05
-    False False  0.95
-
-[19-12-2023 17:58:46] Factor created and added with dataframe: 
-MaryCalls Alarm  prob
-     True  True  0.70
-    False  True  0.30
-     True False  0.01
-    False False  0.99
-
-[19-12-2023 17:58:46] First factor to multiply:
-Alarm Earthquake  prob
- True       True  0.95
-False       True  0.05
- True      False  0.94
-False      False  0.06
-
-[19-12-2023 17:58:46] Second factor to multiply:
-Earthquake  prob
-      True  0.02
-     False  0.98
-
-[19-12-2023 17:58:46] Factor mutliplication result:
-Alarm Earthquake   prob
- True       True 0.0190
-False       True 0.0010
- True      False 0.9212
-False      False 0.0588
-
-[19-12-2023 17:58:46] Factor to marginalize:
-Alarm Earthquake   prob
- True       True 0.0190
-False       True 0.0010
- True      False 0.9212
-False      False 0.0588
-
-[19-12-2023 17:58:46] Factor marginalized:
-Alarm   prob
-False 0.0598
- True 0.9402
-
-[19-12-2023 17:58:46] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:58:46] Factor to marginalize:
-JohnCalls Alarm  prob
-     True  True  0.90
-    False  True  0.10
-     True False  0.05
-    False False  0.95
-
-[19-12-2023 17:58:46] Factor marginalized:
-Alarm  prob
-False   1.0
- True   1.0
-
-[19-12-2023 17:58:46] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:58:46] First factor to multiply:
-Alarm  prob
-False   1.0
- True   1.0
-
-[19-12-2023 17:58:46] Second factor to multiply:
-MaryCalls Alarm  prob
-     True  True  0.70
-    False  True  0.30
-     True False  0.01
-    False False  0.99
-
-[19-12-2023 17:58:46] Factor mutliplication result:
-Alarm MaryCalls  prob
-False      True  0.01
-False     False  0.99
- True      True  0.70
- True     False  0.30
-
-[19-12-2023 17:58:46] First factor to multiply:
-Alarm MaryCalls  prob
-False      True  0.01
-False     False  0.99
- True      True  0.70
- True     False  0.30
-
-[19-12-2023 17:58:46] Second factor to multiply:
-Alarm   prob
-False 0.0598
- True 0.9402
-
-[19-12-2023 17:58:46] Factor mutliplication result:
-Alarm MaryCalls     prob
-False      True 0.000598
-False     False 0.059202
- True      True 0.658140
- True     False 0.282060
-
-[19-12-2023 17:58:46] Factor to marginalize:
-Alarm MaryCalls     prob
-False      True 0.000598
-False     False 0.059202
- True      True 0.658140
- True     False 0.282060
-
-[19-12-2023 17:58:46] Factor marginalized:
-Alarm   prob
-False 0.0598
- True 0.9402
-
-[19-12-2023 17:58:46] Factor added to the list of the key: MaryCalls
-[19-12-2023 17:58:46] Result factor is achieved:
-Alarm   prob
-False 0.0598
- True 0.9402
-
-[19-12-2023 17:58:46] -----------------------------------------------------------------------------------------------------
-[19-12-2023 17:59:30] Factor created and added with dataframe: 
- Fire  prob
- True  0.01
-False  0.99
-
-[19-12-2023 17:59:30] Factor created and added with dataframe: 
-Alarm  Fire Tampering   prob
- True  True      True 0.5000
-False  True      True 0.5000
- True False      True 0.8500
-False False      True 0.1500
- True  True     False 0.9900
-False  True     False 0.0100
- True False     False 0.0001
-False False     False 0.9999
-
-[19-12-2023 17:59:30] Factor created and added with dataframe: 
- Fire  prob
- True  0.90
-False  0.01
-
-[19-12-2023 17:59:30] Factor created and added with dataframe: 
-Leaving Alarm  prob
-   True  True 0.880
-  False  True 0.120
-   True False 0.001
-  False False 0.999
-
-[19-12-2023 17:59:30] Factor created and added with dataframe: 
-Leaving  prob
-   True  0.75
-  False  0.01
-
-[19-12-2023 17:59:30] First factor to multiply:
- Fire  prob
- True  0.90
-False  0.01
-
-[19-12-2023 17:59:30] Second factor to multiply:
- Fire  prob
- True  0.01
-False  0.99
-
-[19-12-2023 17:59:30] Factor mutliplication result:
- Fire   prob
- True 0.0090
-False 0.0099
-
-[19-12-2023 17:59:30] First factor to multiply:
- Fire   prob
- True 0.0090
-False 0.0099
-
-[19-12-2023 17:59:30] Second factor to multiply:
-Alarm  Fire Tampering   prob
- True  True      True 0.5000
-False  True      True 0.5000
- True False      True 0.8500
-False False      True 0.1500
- True  True     False 0.9900
-False  True     False 0.0100
- True False     False 0.0001
-False False     False 0.9999
-
-[19-12-2023 17:59:30] Factor mutliplication result:
- Fire Alarm Tampering         prob
- True  True      True 4.500000e-03
- True False      True 4.500000e-03
- True  True     False 8.910000e-03
- True False     False 9.000000e-05
-False  True      True 8.415000e-03
-False False      True 1.485000e-03
-False  True     False 9.900000e-07
-False False     False 9.899010e-03
-
-[19-12-2023 17:59:30] Factor to marginalize:
- Fire Alarm Tampering         prob
- True  True      True 4.500000e-03
- True False      True 4.500000e-03
- True  True     False 8.910000e-03
- True False     False 9.000000e-05
-False  True      True 8.415000e-03
-False False      True 1.485000e-03
-False  True     False 9.900000e-07
-False False     False 9.899010e-03
-
-[19-12-2023 17:59:30] Factor marginalized:
-Alarm Tampering     prob
-False     False 0.009989
-False      True 0.005985
- True     False 0.008911
- True      True 0.012915
-
-[19-12-2023 17:59:30] Factor added to the list of the key: Alarm
-[19-12-2023 17:59:30] First factor to multiply:
-Alarm Tampering     prob
-False     False 0.009989
-False      True 0.005985
- True     False 0.008911
- True      True 0.012915
-
-[19-12-2023 17:59:30] Second factor to multiply:
-Leaving Alarm  prob
-   True  True 0.880
-  False  True 0.120
-   True False 0.001
-  False False 0.999
-
-[19-12-2023 17:59:30] Factor mutliplication result:
-Alarm Tampering Leaving     prob
-False     False    True 0.000010
-False     False   False 0.009979
-False      True    True 0.000006
-False      True   False 0.005979
- True     False    True 0.007842
- True     False   False 0.001069
- True      True    True 0.011365
- True      True   False 0.001550
-
-[19-12-2023 17:59:30] Factor to marginalize:
-Alarm Tampering Leaving     prob
-False     False    True 0.000010
-False     False   False 0.009979
-False      True    True 0.000006
-False      True   False 0.005979
- True     False    True 0.007842
- True     False   False 0.001069
- True      True    True 0.011365
- True      True   False 0.001550
-
-[19-12-2023 17:59:30] Factor marginalized:
-Tampering Leaving     prob
-    False   False 0.011048
-    False    True 0.007852
-     True   False 0.007529
-     True    True 0.011371
-
-[19-12-2023 17:59:30] Factor added to the list of the key: Leaving
-[19-12-2023 17:59:30] First factor to multiply:
-Tampering Leaving     prob
-    False   False 0.011048
-    False    True 0.007852
-     True   False 0.007529
-     True    True 0.011371
-
-[19-12-2023 17:59:30] Second factor to multiply:
-Leaving  prob
-   True  0.75
-  False  0.01
-
-[19-12-2023 17:59:30] Factor mutliplication result:
-Tampering Leaving     prob
-    False   False 0.000110
-     True   False 0.000075
-    False    True 0.005889
-     True    True 0.008528
-
-[19-12-2023 17:59:30] Factor to marginalize:
-Tampering Leaving     prob
-    False   False 0.000110
-     True   False 0.000075
-    False    True 0.005889
-     True    True 0.008528
-
-[19-12-2023 17:59:30] Factor marginalized:
-Tampering     prob
-    False 0.005999
-     True 0.008604
-
-[19-12-2023 17:59:30] Factor added to the list of the key: Leaving
-[19-12-2023 17:59:30] Result factor is achieved:
-Tampering     prob
-    False 0.410824
-     True 0.589176
-
-[19-12-2023 17:59:30] -----------------------------------------------------------------------------------------------------
+[19-12-2023 22:15:40] Amount of multiplications: 3
+[19-12-2023 22:15:40] Amount of marginalizations: 3
+[19-12-2023 22:15:40] -----------------------------------------------------------------------------------------------------

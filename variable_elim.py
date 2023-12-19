@@ -34,19 +34,24 @@ class VariableElimination():
     """
     def run(self, observed, elim_order, logger):
         factors = self.CreateFactors(observed, elim_order, logger)
+        multiplicationCounter = 0
+        marginalizationCounter = 0
+
         for elim in elim_order:
             while factors[elim].__len__() > 1:
                 fac1 = factors[elim].pop()
                 logger.LogDataframe(fac1, "First factor to multiply:")
-                fac2 = self.getoverlappingfactors(factors[elim], fac1)
+                fac2 = fac1.GetFactorWithCommonColumns(factors[elim])
                 logger.LogDataframe(fac2, "Second factor to multiply:")
                 factors[elim].remove(fac2)
                 multiplied_factor = fac1.Multiplication(fac2)
+                multiplicationCounter+=1
                 factors[elim].append(multiplied_factor)
                 logger.LogDataframe(multiplied_factor, "Factor mutliplication result:")
             if factors[elim].__len__() == 1:
                 logger.LogDataframe(factors[elim][0], "Factor to marginalize:")
                 marginalized_factor = factors[elim].pop().Marginalize(elim)
+                marginalizationCounter+=1
                 logger.LogDataframe(marginalized_factor, "Factor marginalized:")
 
                 x = False
@@ -54,7 +59,6 @@ class VariableElimination():
                     for item2 in factors.keys():
                         if  item == item2:
                             x = True
-
                 if x:                  
                     for col in marginalized_factor.Dataframe.columns:
                         if col != "prob":
@@ -74,13 +78,9 @@ class VariableElimination():
             else:
                 result_factor = value[0].Normalize()
                 logger.LogDataframe(result_factor, "Result factor is achieved:")
+                logger.LogMessage("Amount of multiplications: " + multiplicationCounter.__str__())
+                logger.LogMessage("Amount of marginalizations: " + marginalizationCounter.__str__())
                 return result_factor
-
-    def getoverlappingfactors(self, variable_factors, factor1):
-        for factor2 in variable_factors:
-            intersection = list(set(factor1.Dataframe.columns).intersection(factor2.Dataframe.columns))
-            if intersection:
-                return factor2
 
     def CreateFactors(self, observed, elim_order, logger):
         factorsdictionary = dict()
