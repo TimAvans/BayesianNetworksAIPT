@@ -22,44 +22,56 @@
 #                                      Alarm     True True False False
 #                                      prob      0.7  0.3  0.01  0.99
 
-#Dataframes!
-
+from ast import List
 import pandas 
 
 class Factor:
-    
-    def __init__(self, query: str, dataframe : pandas.DataFrame):
-        self.Query = query
+
+    def __init__(self, dataframe : pandas.DataFrame):
         self.Dataframe = dataframe
 
-
-#Multiplication functions/operators override of the standard multiplication functions/operators of the class    
+    def Reduce(self, variable : str, value : str):
+        self.Dataframe = self.Dataframe.loc[self.Dataframe[variable] == value]
+        self.Dataframe = self.Dataframe.drop(variable, axis=1)
+    
     def Multiplication(self, other : 'Factor'):
         # Find common columns
-        common_columns = list(self.Dataframe.columns.intersection(other.Dataframe.columns))
+        common_columns = list(set(element for element in self.Dataframe.columns if element != 'prob')
+                              .intersection(element for element in other.Dataframe.columns if element != 'prob'))
+        
         if(common_columns.__contains__("prob")):
             common_columns.remove("prob")
             
         if not common_columns:
             print("No common columns found.")
-            return pandas.DataFrame()  # Return an empty dataframe
-        
+            return self  # Return an empty dataframe
+
         # Merge with different suffixes for each dataframe
-        merged = pandas.merge(self.Dataframe, other.Dataframe, on=common_columns, suffixes=('_self', '_other'))
+        merged = self.Dataframe.merge(other.Dataframe, on=common_columns, suffixes=('_self', '_other'))
         merged['prob'] = merged['prob_self'] * merged['prob_other']
         merged = merged.drop(columns=['prob_self', 'prob_other'])
 
-        return Factor(self.Query, merged)
+        return Factor(merged)
 
     def Marginalize(self, variable : str):     
         if(not self.Dataframe.columns.__contains__(variable)):
-            return -1
+            return self
+
         dtf = self.Dataframe.drop(variable, axis=1)
         vars = [col for col in dtf.columns.tolist() if col != "prob"]
-        return Factor(self.Query, dtf.groupby(vars)["prob"].sum())
+        dtf = dtf.groupby(vars, as_index=False)["prob"].sum()
+        if isinstance(dtf, pandas.Series):
+            dtf = pandas.DataFrame(dtf)
+        
+        return Factor(dtf)
 
     def Normalize(self):
-        return -1
+        total_prob = self.Dataframe['prob'].sum()
+
+        if total_prob != 0:
+            self.Dataframe['prob'] = self.Dataframe['prob'] / total_prob
+
+        return self
     
     def __str__(self):
         return ""
