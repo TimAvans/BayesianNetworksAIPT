@@ -4486,3 +4486,263 @@ Tampering     prob
 
 [20-12-2023 13:47:56] Amount of multiplications: 5
 [20-12-2023 13:47:56] Amount of marginalizations: 3
+[20-12-2023 14:14:10] Factor created and added with dataframe: 
+ Fire  prob
+ True  0.01
+False  0.99
+
+[20-12-2023 14:14:10] Factor created and added with dataframe: 
+Alarm  Fire Tampering   prob
+ True  True      True 0.5000
+False  True      True 0.5000
+ True False      True 0.8500
+False False      True 0.1500
+ True  True     False 0.9900
+False  True     False 0.0100
+ True False     False 0.0001
+False False     False 0.9999
+
+[20-12-2023 14:14:10] Factor created and added with dataframe: 
+ Fire  prob
+ True  0.90
+False  0.01
+
+[20-12-2023 14:14:10] Factor created and added with dataframe: 
+Leaving Alarm  prob
+   True  True 0.880
+  False  True 0.120
+   True False 0.001
+  False False 0.999
+
+[20-12-2023 14:14:10] Factor created and added with dataframe: 
+Leaving  prob
+   True  0.75
+  False  0.01
+
+[20-12-2023 14:14:10] Factor to marginalize:
+Leaving Alarm  prob
+   True  True 0.880
+  False  True 0.120
+   True False 0.001
+  False False 0.999
+
+[20-12-2023 14:14:10] Factor marginalized:
+Leaving  prob
+  False 1.119
+   True 0.881
+
+[20-12-2023 14:14:10] Factor added to the list of the key: Alarm
+[20-12-2023 14:14:10] First factor to multiply:
+Leaving  prob
+  False 1.119
+   True 0.881
+
+[20-12-2023 14:14:10] Second factor to multiply:
+Leaving  prob
+   True  0.75
+  False  0.01
+
+[20-12-2023 14:14:10] Factor mutliplication result:
+Leaving    prob
+  False 0.01119
+   True 0.66075
+
+[20-12-2023 14:14:10] Factor to marginalize:
+Leaving    prob
+  False 0.01119
+   True 0.66075
+
+[20-12-2023 15:40:41] Factor created and added with dataframe: 
+ Fire  prob
+ True  0.01
+False  0.99
+
+[20-12-2023 15:40:41] Factor created and added with dataframe: 
+Alarm  Fire Tampering   prob
+ True  True      True 0.5000
+False  True      True 0.5000
+ True False      True 0.8500
+False False      True 0.1500
+ True  True     False 0.9900
+False  True     False 0.0100
+ True False     False 0.0001
+False False     False 0.9999
+
+[20-12-2023 15:40:41] Factor created and added with dataframe: 
+ Fire  prob
+ True  0.90
+False  0.01
+
+[20-12-2023 15:40:41] Factor created and added with dataframe: 
+Leaving Alarm  prob
+   True  True 0.880
+  False  True 0.120
+   True False 0.001
+  False False 0.999
+
+[20-12-2023 15:40:41] Factor created and added with dataframe: 
+Leaving  prob
+   True  0.75
+  False  0.01
+
+[20-12-2023 15:40:41] First factor to multiply:
+ Fire  prob
+ True  0.90
+False  0.01
+
+[20-12-2023 15:40:51] Second factor to multiply:
+ Fire  prob
+ True  0.01
+False  0.99
+
+[20-12-2023 15:40:51] Factor mutliplication result:
+ Fire   prob
+ True 0.0090
+False 0.0099
+
+[20-12-2023 15:40:51] First factor to multiply:
+ Fire   prob
+ True 0.0090
+False 0.0099
+
+[20-12-2023 15:40:51] Second factor to multiply:
+Alarm  Fire Tampering   prob
+ True  True      True 0.5000
+False  True      True 0.5000
+ True False      True 0.8500
+False False      True 0.1500
+ True  True     False 0.9900
+False  True     False 0.0100
+ True False     False 0.0001
+False False     False 0.9999
+
+[20-12-2023 15:40:51] Factor mutliplication result:
+ Fire Alarm Tampering         prob
+ True  True      True 4.500000e-03
+ True False      True 4.500000e-03
+ True  True     False 8.910000e-03
+ True False     False 9.000000e-05
+False  True      True 8.415000e-03
+False False      True 1.485000e-03
+False  True     False 9.900000e-07
+False False     False 9.899010e-03
+
+[20-12-2023 15:40:51] Factor to marginalize:
+ Fire Alarm Tampering         prob
+ True  True      True 4.500000e-03
+ True False      True 4.500000e-03
+ True  True     False 8.910000e-03
+ True False     False 9.000000e-05
+False  True      True 8.415000e-03
+False False      True 1.485000e-03
+False  True     False 9.900000e-07
+False False     False 9.899010e-03
+
+[20-12-2023 15:40:51] Factor marginalized:
+Alarm Tampering     prob
+False     False 0.009989
+False      True 0.005985
+ True     False 0.008911
+ True      True 0.012915
+
+[20-12-2023 15:40:51] Factor added to the list of the key: Fire
+[20-12-2023 15:40:51] First factor to multiply:
+Alarm Tampering     prob
+False     False 0.009989
+False      True 0.005985
+ True     False 0.008911
+ True      True 0.012915
+
+[20-12-2023 15:40:51] Second factor to multiply:
+Leaving Alarm  prob
+   True  True 0.880
+  False  True 0.120
+   True False 0.001
+  False False 0.999
+
+[20-12-2023 15:40:51] Factor mutliplication result:
+Alarm Tampering Leaving     prob
+False     False    True 0.000010
+False     False   False 0.009979
+False      True    True 0.000006
+False      True   False 0.005979
+ True     False    True 0.007842
+ True     False   False 0.001069
+ True      True    True 0.011365
+ True      True   False 0.001550
+
+[20-12-2023 15:40:51] Factor to marginalize:
+Alarm Tampering Leaving     prob
+False     False    True 0.000010
+False     False   False 0.009979
+False      True    True 0.000006
+False      True   False 0.005979
+ True     False    True 0.007842
+ True     False   False 0.001069
+ True      True    True 0.011365
+ True      True   False 0.001550
+
+[20-12-2023 15:40:51] Factor marginalized:
+Tampering Leaving     prob
+    False   False 0.011048
+    False    True 0.007852
+     True   False 0.007529
+     True    True 0.011371
+
+[20-12-2023 15:40:51] Factor added to the list of the key: Alarm
+[20-12-2023 15:40:51] First factor to multiply:
+Tampering Leaving     prob
+    False   False 0.011048
+    False    True 0.007852
+     True   False 0.007529
+     True    True 0.011371
+
+[20-12-2023 15:40:51] Second factor to multiply:
+Leaving  prob
+   True  0.75
+  False  0.01
+
+[20-12-2023 15:40:51] Factor mutliplication result:
+Tampering Leaving     prob
+    False   False 0.000110
+     True   False 0.000075
+    False    True 0.005889
+     True    True 0.008528
+
+[20-12-2023 15:40:51] Factor to marginalize:
+Tampering Leaving     prob
+    False   False 0.000110
+     True   False 0.000075
+    False    True 0.005889
+     True    True 0.008528
+
+[20-12-2023 15:40:51] Factor marginalized:
+Tampering     prob
+    False 0.005999
+     True 0.008604
+
+[20-12-2023 15:40:51] Factor added to the list of the key: Leaving
+[20-12-2023 15:40:51] Get the query factor and multiply it by the result of the variable elimination algorithm: 
+[20-12-2023 15:40:51] Query factor:
+Tampering  prob
+     True  0.02
+    False  0.98
+
+[20-12-2023 15:40:51] Variable elimination algorithm result:
+Tampering     prob
+    False 0.005999
+     True 0.008604
+
+[20-12-2023 15:40:51] Result factor is achieved:
+Tampering     prob
+    False 0.971564
+     True 0.028436
+
+[20-12-2023 15:40:51] Result factor normalized is achieved:
+Tampering     prob
+    False 0.971564
+     True 0.028436
+
+[20-12-2023 15:40:51] Amount of multiplications: 5
+[20-12-2023 15:40:51] Amount of marginalizations: 3
+[20-12-2023 15:40:51] -----------------------------------------------------------------------------------------------------
