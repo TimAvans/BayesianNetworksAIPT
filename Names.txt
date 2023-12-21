@@ -1,4 +1,3 @@
-# BayesianNetworksAIPT
 Students: Britt Stoffels s1054953, Tim Janssen s1125701
 Assignment: Programming assignment 3
 Course: SOW-BKI259

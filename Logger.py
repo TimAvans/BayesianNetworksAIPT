@@ -46,7 +46,7 @@ class Logger:
         dict_string = ""
 
         # Iterate through the dictionary and format key-value pairs
-        dict_string += f"{key}: {value}\n"
+        dict_string += ""
         for key, value in dictionary.items():
             dict_string += key + " : " + value + "\n"
 
