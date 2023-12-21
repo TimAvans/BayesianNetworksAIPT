@@ -4,9 +4,8 @@
 Class for the implementation of the variable elimination algorithm.
 
 """
-import operator
 from Factor import Factor
-import pandas
+
 class VariableElimination():
 
     """
@@ -33,16 +32,20 @@ class VariableElimination():
 
     """
     def run(self, query, observed, elim_order, logger):
+        logger.LogMessage("Query variable: " + query)      
+        logger.LogDictionary(observed, "Observed variables: ")
+        logger.LogList(elim_order, "Elimination order: ")
+
         # Create the factors dictionary
         factors = self.CreateFactors(observed, elim_order, logger)
 
         # Initialize the complexity counters at 0
         multiplicationCounter = 0
         marginalizationCounter = 0
-
+        logger.LogMessage("Algorithm started: \n\n")
         # Loop through the elimination order
         for elim in elim_order:
-            # Check if the length of the factors list of the current elim node is greater than 1 
+            # Check if the length of the factors list of the current elim node is greater than 1
             while factors[elim].__len__() > 1:
                 # Take the first factor from the list and remove it
                 fac1 = factors[elim].pop()
@@ -53,7 +56,7 @@ class VariableElimination():
                 factors[elim].remove(fac2)
                 # Multiply the first factor with the second factor and add it back to the list
                 multiplied_factor = fac1.Multiplication(fac2)
-                multiplicationCounter+=1
+                multiplicationCounter+= len(fac1.Dataframe) * len(fac2.Dataframe)
                 factors[elim].append(multiplied_factor)
                 logger.LogDataframe(multiplied_factor, "Factor mutliplication result:")
             
@@ -89,7 +92,8 @@ class VariableElimination():
                 result_factor = value[0].Multiplication(query_factor)
                 logger.LogDataframe(query_factor, "Query factor:")
                 logger.LogDataframe(value[0], "Variable elimination algorithm result:")
-                multiplicationCounter+=1
+                multiplicationCounter+= len(fac1.Dataframe) * len(fac2.Dataframe)
+
                 # Normalize the result
                 result_factor_normalized = result_factor.Normalize()
                 logger.LogDataframe(result_factor, "Result factor is achieved:")
@@ -104,6 +108,7 @@ class VariableElimination():
     Returns a dictionary with all factors as value to the node's name as key
     """
     def CreateFactors(self, observed, elim_order, logger):
+        logger.LogMessage("Creating of Factors: \n\n")
         # Initialize an empty dict
         factorsdictionary = dict()
         # Initialize a copy of all dataframes in the network

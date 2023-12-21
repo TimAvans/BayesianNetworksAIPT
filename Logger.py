@@ -1,5 +1,6 @@
 import datetime
 from Factor import Factor 
+
 class Logger:
     """
     Initialize the logger
@@ -33,3 +34,33 @@ class Logger:
 
         with open(self.log_file, 'a') as file:
             file.write(log_entry + factor.Dataframe.to_string(index=False) + '\n\n')
+
+    """
+    Log a dictionary of key value pairs in format:
+    [{timestamp}] {message}\n 
+    {Key:Value}
+    """
+    def LogDictionary(self, dictionary : dict, message=''):
+        timestamp = datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+        log_entry = f'[{timestamp}] {message}\n'
+        dict_string = ""
+        for key, value in dictionary.items():
+            dict_string += key + " : " + value + "\n"
+
+        with open(self.log_file, 'a') as file:
+            file.write(log_entry + "" + dict_string + " " + '\n')
+
+    """
+    Log a list of strings in format:
+    [{timestamp}] {message}\n 
+    {str}
+    """
+    def LogList(self, values : [], message=''):
+        timestamp = datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+        log_entry = f'[{timestamp}] {message}\n'
+        list_string = ""
+        for value in values:
+            list_string += value + "\n"
+
+        with open(self.log_file, 'a') as file:
+            file.write(log_entry + "" + list_string + " " + '\n')
