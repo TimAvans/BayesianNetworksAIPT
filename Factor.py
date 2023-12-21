@@ -76,6 +76,7 @@ class Factor:
         
         # Drop the column of variable 
         dtf = self.Dataframe.drop(variable, axis=1)
+
         # Group the other columns and sum the probability
         vars = [col for col in dtf.columns.tolist() if col != "prob"]
         dtf = dtf.groupby(vars, as_index=False)["prob"].sum()
@@ -105,8 +106,10 @@ class Factor:
     def GetFactorWithCommonColumns(self, factors):
         # Loop throught the factors list
         for other in factors:
+
             # Get the columns they have in common
             common_columns = list(set(element for element in self.Dataframe.columns if element != 'prob').intersection(element for element in other.Dataframe.columns if element != 'prob'))
+            
             # Return the factor with more than 0 columns in common
             if common_columns.__len__() > 0:
                 return other

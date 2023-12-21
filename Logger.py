@@ -44,6 +44,9 @@ class Logger:
         timestamp = datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         log_entry = f'[{timestamp}] {message}\n'
         dict_string = ""
+
+        # Iterate through the dictionary and format key-value pairs
+        dict_string += f"{key}: {value}\n"
         for key, value in dictionary.items():
             dict_string += key + " : " + value + "\n"
 
@@ -59,6 +62,8 @@ class Logger:
         timestamp = datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         log_entry = f'[{timestamp}] {message}\n'
         list_string = ""
+
+        # Iterate through the list and format each value
         for value in values:
             list_string += value + "\n"
 

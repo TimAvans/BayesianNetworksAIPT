@@ -12,14 +12,17 @@ from Logger import Logger
 
 
 def CreateEliminationOrder(network : BayesNet, query, evidence):
+    # Initialize elimination order with all nodes in the network
     elim_order = network.nodes
     elim_order.remove(query)
 
+    # Remove nodes corresponding to evidence variables from the elimination order
     for key in evidence.keys():
         elim_order.remove(key)
     
     return elim_order
 
+# Entry point for the script, executing Bayesian network probabilistic inference and logging results.
 if __name__ == '__main__':
 
     logger = Logger("Log.txt")
